@@ -21,7 +21,7 @@
 							<span class="hamburger-inner"></span>
 						</span>
 					</span>
-					<span class="trigger-title">Dashboard Navigation</span>
+					<span class="trigger-title">Navigasi</span>
 				</a>
 				
 				<!-- Navigation -->
