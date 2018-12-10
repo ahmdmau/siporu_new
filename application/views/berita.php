@@ -58,14 +58,6 @@
 						<!-- Pagination -->
 						<div class="pagination-container margin-top-60 margin-bottom-60">
 						<nav class="pagination">
-							<!-- <ul>
-								<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
-								<li><a href="#" class="ripple-effect">1</a></li>
-								<li><a href="#" class="current-page ripple-effect">2</a></li>
-								<li><a href="#" class="ripple-effect">3</a></li>
-								<li><a href="#" class="ripple-effect">4</a></li>
-								<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
-							</ul> -->
 							<?php echo $pagination; ?>
 						</nav>
 					</div>
