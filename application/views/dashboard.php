@@ -92,13 +92,13 @@
 				</div>
 
 				<!-- Last one has to be hidden below 1600px, sorry :( -->
-				<div class="fun-fact" data-fun-fact-color="#2a41e6">
+				<!-- <div class="fun-fact" data-fun-fact-color="#2a41e6">
 					<div class="fun-fact-text">
 						<span>This Month Views</span>
 						<h4>987</h4>
 					</div>
 					<div class="fun-fact-icon"><i class="icon-feather-trending-up"></i></div>
-				</div>
+				</div> -->
 			</div>
 			
 
