@@ -44,7 +44,6 @@
 				<tbody>
 					<tr>
 						<th>No</th>
-						<th>Id Ukm</th>
 						<th>Nama Produk</th>
 						<th>Kuantitas</th>
 						<th>Harga</th>
@@ -57,7 +56,6 @@
 					?>
 					<tr>
 						<td data-label="No"><?= $i ?></td>
-						<td data-label="No"><?= $items['id_ukm'] ?></td>
 						<td data-label="Nama Produk"><?= $items['name'] ?></td>
 						<td data-label="Kuantitas"><?= $items['qty'] ?></td>
 						<td align="right" data-label="Harga">Rp. <?= number_format($items['price'],0,',','.') ?></td>
