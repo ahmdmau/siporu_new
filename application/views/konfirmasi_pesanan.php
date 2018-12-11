@@ -89,7 +89,7 @@
 							</div>
 							<?php endif; ?>
 							</div>
-							<form action="<?= base_url('user/konfirmasi_pesanan') ?>" method="post" style="padding-bottom:30px;">
+							<form action="<?= base_url('user/konfirmasi_pesanan') ?>" method="post" style="padding-bottom:30px;" enctype="multipart/form-data">
 								<div class="col-xl-12 col-md-12">
 									<div class="section-headline margin-top-25 margin-bottom-12">
 										<h5>ID Invoice</h5>
@@ -101,6 +101,13 @@
 										<h5>Jumlah yang di Transfer</h5>
 									</div>
 									<input class="with-border" name="jumlah">
+								</div>
+								<div class="col-xl-12 col-md-12">
+								<div class="uploadButton margin-top-30 margin-bottom-30">
+											<input class="uploadButton-input" name="bukti_trf" type="file" accept="image/*, application/pdf" id="upload" multiple="">
+											<label class="uploadButton-button ripple-effect" for="upload">Upload Bukti Transfer</label>
+											<span class="uploadButton-file-name">Foto bukti transfer anda</span>
+										</div>
 								</div>
 								<div class="col-xl-6 col-md-6">
 									<button class="button ripple-effect" type="submit">Konfirmasi Pesanan</button>
