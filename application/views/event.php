@@ -33,7 +33,7 @@
 
 				<!-- Blog Post -->
 				<?php foreach ($event as $event) { ?>
-				<a href="<?php echo base_url()  . 'event/' . $event->slug ?>" class="blog-post">
+				<a href="<?php echo base_url()  . 'event/read/' . $event->slug ?>" class="blog-post">
 					<!-- Blog Post Thumbnail -->
 					<div class="blog-post-thumbnail">
 						<div class="blog-post-thumbnail-inner">
@@ -57,12 +57,8 @@
 						<!-- Pagination -->
 						<div class="pagination-container margin-top-10 margin-bottom-20">
 							<nav class="pagination">
-								<ul>
-									<li><a href="#" class="current-page ripple-effect">1</a></li>
-									<li><a href="#" class="ripple-effect">2</a></li>
-									<li><a href="#" class="ripple-effect">3</a></li>
-									<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
-								</ul>
+								<?php echo $pagination; ?>
+
 							</nav>
 						</div>
 					</div>
@@ -77,54 +73,17 @@
 					
 					<!-- Location -->
 					<div class="sidebar-widget margin-bottom-40">
+					<form action="<?= base_url('event/cari') ?>" method="GET">
 						<div class="input-with-icon">
-							<input id="autocomplete-input" type="text" placeholder="Search">
+							<input name="query" type="text" placeholder="Cari event">
 							<i class="icon-material-outline-search"></i>
 						</div>
+						<div class="margin-top-10">
+							<input type="submit" class="button ripple-effect" value="Cari">
+
+						</div>
+						</form>
 					</div>
-
-					<!-- Widget -->
-					<div class="sidebar-widget">
-
-						<h3>Trending Posts</h3>
-						<ul class="widget-tabs">
-
-							<!-- Post #1 -->
-							<li>
-								<a href="pages-blog-post.html" class="widget-content active">
-									<img src="images/blog-02a.jpg" alt="">
-									<div class="widget-text">
-										<h5>How to "Woo" a Recruiter and Land Your Dream Job</h5>
-										<span>29 June 2018</span>
-									</div>
-								</a>
-							</li>
-
-							<!-- Post #2 -->
-							<li>
-								<a href="pages-blog-post.html" class="widget-content">
-									<img src="images/blog-07a.jpg" alt="">
-									<div class="widget-text">
-										<h5>What It Really Takes to Make $100k Before You Turn 30</h5>
-										<span>3 June 2018</span>
-									</div>
-								</a>
-							</li>
-							<!-- Post #3 -->
-							<li>
-								<a href="pages-blog-post.html" class="widget-content">
-									<img src="images/blog-04a.jpg" alt="">
-									<div class="widget-text">
-										<h5>5 Myths That Prevent Job Seekers from Overcoming Failure</h5>
-										<span>5 June 2018</span>
-									</div>
-								</a>
-							</li>
-						</ul>
-
-					</div>
-
-
 				</div>
 			</div>
 
