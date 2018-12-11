@@ -28,4 +28,18 @@ class Invoices extends CI_Controller {
         $this->load->view('user_ukm/detail_pesanan', $data);
     }
 
+    public function konfirmasi_pesanan($id_invoices)
+    {
+        
+
+        $isValid = $this->order_model->konfirmasi_pesanan($id_invoices);
+        if ($isValid) {
+            $this->session->set_flashdata('message', 'Terima kasih.. Silahkan lakukan pengiriman barang!');
+            redirect('user_ukm/invoices');
+        } else{
+            $this->session->set_flashdata('error', 'Error');
+            redirect('user/konfirmasi_pesanan/' . set_value('id_invoices'));
+        }
+    }
+
 }
