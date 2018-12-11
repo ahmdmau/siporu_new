@@ -22,8 +22,26 @@ class Event_model extends CI_Model {
         return $query;       
     }
 
-    public function get_all_event($number, $offset)
+    public function get_all_event($limit, $start)
     {
-        return $query = $this->db->get('event', $number, $offset)->result();        
+        $sql = "select * from event limit " . $start . ", " . $limit;
+        $query = $this->db->query($sql);
+        return $query->result();   
     }
+
+    public function count_all($kategori)
+    {
+        // if ($kategori == "NULL") $kategori = "";
+        $sql = "select * from event where nama_event like '%$kategori%'";
+        $query = $this->db->query($sql);
+        return $query->num_rows();
+    }
+
+    public function cari_event($limit, $start, $keywords)
+    {
+        $sql = "select * from event where nama_event like '%$keywords%' limit " . $start . ", " . $limit;
+        $query = $this->db->query($sql);
+        return $query->result();
+    }
+
 }
