@@ -16,6 +16,7 @@ class User extends CI_Controller{
     {
 		$id = $this->session->userdata['logged_in']['id_pembeli'];
 		$data['riwayat'] = $this->user_model->get_shopping_history($id);
+
 		// $where = array('id_ukm' => $id);
 		$data["total"] = $this->user_model->hitung_transaksi($id)->result();
         $this->load->view('dashboard', $data);
@@ -225,11 +226,14 @@ class User extends CI_Controller{
             	$config['max_width'] = '2000';
             	$config['max_height'] = '2000';
 
-            	$this->load->library('upload', $config);
+				$this->load->library('upload', $config);
+				$email = $this->input->post('email');
+				$result2 = $this->user_model->get_user_data($email);
+
 
             	if(!$this->upload->do_upload('gambar')){
             	        $errors = array('error' => $this->upload->display_errors());
-            	        $post_image = 'default.jpg';
+            	        $post_image = $result2[0]->gambar;
             	} else {
             	    $data = array('upload_data' => $this->upload->data());
             	    $post_image = $data['upload_data']['file_name'];
@@ -237,8 +241,20 @@ class User extends CI_Controller{
 
 				// $enc_password = md5($this->input->post('newpassword'));
 				$this->user_model->update_user($id,$post_image);
+				$result = $this->user_model->get_user_data($email);
+				if ($result != false) {
+					$session_data = array(
+						'nama_lengkap' => $result[0]->nama_lengkap,
+						'email' => $result[0]->email,
+                        'id_pembeli' => $result[0]->id_pembeli,
+                        'gambar' => $result[0]->gambar
+				);
+			}
 
-            	$this->session->set_flashdata('new_pass_success', 'Update Berhasil');
+					$this->session->set_userdata('logged_in', $session_data);
+
+				$this->session->set_flashdata('new_pass_success', 'Update Berhasil');
+				
 			
             	redirect($_SERVER['HTTP_REFERER']);
 		}

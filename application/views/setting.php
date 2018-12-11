@@ -70,7 +70,7 @@
 			<div class="row">
 
 				<!-- Dashboard Box -->
-				<form action="<?= base_url('user/aksi_setting') ?>" method="post">
+				<form action="<?= base_url('user/aksi_setting') ?>" method="post" enctype="multipart/form-data">
 				<div class="col-xl-12">
 					<div class="dashboard-box margin-top-0">
 
@@ -96,8 +96,13 @@
 
 							<div class="row">
 								<?php foreach($user as $u) : ?>
+
 								<div class="col-auto">
-								<input type="file" name="gambar">
+									<div class="avatar-wrapper" data-tippy-placement="bottom" data-tippy="Ganti Foto" data-original-title="Change Avatar">
+										<img class="profile-pic" src="<?= base_url('upload/user/' . $u->gambar) ?>" alt="">
+										<div class="upload-button"></div>
+										<input class="file-upload" type="file" name="gambar" accept="image/*">
+									</div>
 								</div>
 
 								<div class="col">
