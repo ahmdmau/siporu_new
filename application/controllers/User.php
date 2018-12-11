@@ -10,6 +10,7 @@ class User extends CI_Controller{
 		$this->load->model('produk_model');
 		$this->load->library('form_validation');
 		
+		
     }
 
     public function dashboard()
