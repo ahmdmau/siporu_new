@@ -11,7 +11,6 @@
 					<li><a href="<?php echo base_url('user_ukm/produk/tambah_produk') ?>">Tambah Produk</a></li>
 				</ul>
 			</li>
-			<li><a href="#dropdown-ui"><i class="la la-user"></i><span>Tenaga Kerja</span></a>
 			<li><a href="<?= base_url('user_ukm/invoices') ?>"><i class="la la-shopping-cart"></i><span>Pesanan</span></a>
 
 			</li>

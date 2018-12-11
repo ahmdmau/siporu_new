@@ -84,6 +84,12 @@
 								<a class="close"></a>
 							</div>
 							<?php endif; ?>
+							<?php if ($this->session->flashdata('batal_pesan')): ?>
+							<div class="notification success closeable">
+								<p><?php echo $this->session->flashdata('batal_pesan'); ?></p>
+								<a class="close"></a>
+							</div>
+							<?php endif; ?>
 							<ul class="dashboard-box-list">
 								<?php foreach ($riwayat as $h) { ?>
 								<li>
@@ -108,6 +114,7 @@
 									<?php if($h->status == 'unpaid') : ?>
 									<div class="buttons-to-right">
 										<a href="<?= base_url('user/konfirmasi_pesanan/') . $h->id ?>" class="button">Selesaikan Pembayaran</a>
+										<a href="<?= base_url('user/batal_pesanan/') . $h->id ?>"  onclick="return confirm('apakah anda yakin?')"  class="button">Batal Pesanan</a>
 									</div>
 									<?php endif ?>
 								</li>

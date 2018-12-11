@@ -41,7 +41,9 @@
                                                         <th>Nama Produk</th>
                                                         <th>Kuantitas</th>
                                                         <th>Harga</th>
+                                                        <th>Bukti Transfer</th>
                                                         <th>Subtotal</th>
+                                                        <th>Aksi</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -56,14 +58,27 @@
                                                         <td><?= $order->nama_produk ?></td>
                                                         <td><?= $order->qty ?></td>
                                                         <td><?= $order->harga ?></td>
+                                                        <td>
+                                                            <img width="100" src="<?= base_url('upload/bukti_trf/'.$invoices->bukti_trf) ?>" alt="">
+                                                        </td>
                                                         <td><?= $subtotal ?></td>
+                                                        <td width="80">
+                                                            <?php if($invoices->status == "paid") { ?>
+                                                            -
+                                                            <?php } elseif($invoices->status == "confirmed") { ?>
+                                                            <a class="btn btn-gradient-01" href="<?= base_url('user_ukm/invoices/konfirmasi_pesanan/'.$invoices->id) ?>">Konfirmasi</a>
+                                                            <?php } elseif($invoices->status == "unpaid") { ?>
+                                                                -
+                                                                <?php } ?> 
+                                                        </td>
                                                     </tr>
                                                     <?php endforeach; ?>
                                                 </tbody>
+
                                                 <tfoot>
                                                     <tr>
-                                                        <td colspan="4"> <strong> Total</strong></td>
-                                                        <td><?= $total ?></td>
+                                                        <td colspan="6"> <strong> Total</strong></td>
+                                                        <td> <strong><?= $total ?></strong> </td>
                                                     </tr>
                                                 </tfoot>
                                             </table>

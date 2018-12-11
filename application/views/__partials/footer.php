@@ -453,6 +453,9 @@ $('#snackbar-user-status label').click(function() {
 <script src="<?php echo base_url('assets/user/js/magnific-popup.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/user/js/slick.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/user/js/custom.js') ?>"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g&libraries=places"></script>
+
+<script src="<?php echo base_url('assets/user/js/maps.js') ?>"></script>
 
 <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
 <script>
@@ -521,30 +524,7 @@ $('#snackbar-user-status label').click(function() {
 </script>
 
 
-<!-- Google Autocomplete -->
-<script>
-	function initAutocomplete() {
-		 var options = {
-		  types: ['(cities)'],
-		  // componentRestrictions: {country: "us"}
-		 };
-
-		 var input = document.getElementById('autocomplete-input');
-		 var autocomplete = new google.maps.places.Autocomplete(input, options);
-	}
-
-	// Autocomplete adjustment for homepage
-	// if ($('.intro-banner-search-form')[0]) {
-	//     setTimeout(function(){ 
-	//         $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
-	//     }, 300);
-	// }
-
-</script>
-
-
 <!-- Google API -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgeuuDfRlweIs7D6uo4wdIHVvJ0LonQ6g&amp;libraries=places&amp;callback=initAutocomplete"></script>
 	
 </html>
 
