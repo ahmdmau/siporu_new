@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'siporu';
-$route['berita/(:any)'] = 'berita/detail_berita/$1';
+$route['berita/read/(:any)'] = 'berita/detail_berita/$1';
 $route['event/(:any)'] = 'event/detail_event/$1';
 $route['ukm/read/(:any)'] = 'ukm/detail_ukm/$1';
 $route['produk/(:any)'] = 'produk/detail_produk/$1';
