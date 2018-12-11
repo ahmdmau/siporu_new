@@ -534,11 +534,11 @@ $('#snackbar-user-status label').click(function() {
 	}
 
 	// Autocomplete adjustment for homepage
-	if ($('.intro-banner-search-form')[0]) {
-	    setTimeout(function(){ 
-	        $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
-	    }, 300);
-	}
+	// if ($('.intro-banner-search-form')[0]) {
+	//     setTimeout(function(){ 
+	//         $(".pac-container").prependTo(".intro-search-field.with-autocomplete");
+	//     }, 300);
+	// }
 
 </script>
 

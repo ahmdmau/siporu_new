@@ -46,12 +46,6 @@ class Ukm_model extends CI_Model{
                   ->where('u.id_ukm', $id_ukm)
                   ->get();
         return $query->result();
-
-        // $this->db->select('*');
-        // $this->db->from('ukm');
-        // $this->db->where('slug', $slug);
-        // $query = $this->db->get();
-        // return $query;    
     }
 
     function get_ukm_count($search_term, $kota)

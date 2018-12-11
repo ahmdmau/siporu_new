@@ -1,9 +1,6 @@
 <?php 
 if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-	/**
-	 * User Ukm Model
-	 */
 	class Userukm_model extends CI_Model
 	{
 	    public function register($enc_password, $post_image)

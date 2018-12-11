@@ -30,9 +30,11 @@
 				<!-- Section Headline -->
 				<div class="section-headline margin-top-60 margin-bottom-35">
 				</div>
-
+				<?php if($query == false) { ?>
+				<h3 align="center">Data yang anda cari tidak ditemukan!</h3>
+				<?php } else { ?>
 				<!-- Blog Post -->
-				<?php foreach ($berita as $berita) { ?>
+				<?php foreach ($query as $berita) { ?>
 				<a href="<?php echo base_url()  . 'berita/read/' . $berita->slug ?>" class="blog-post">
 					<!-- Blog Post Thumbnail -->
 					<div class="blog-post-thumbnail">
@@ -50,7 +52,7 @@
 					<!-- Icon -->
 					<div class="entry-icon"></div>
 				</a>
-				<?php } ?>
+				<?php } }?>
 				<!-- Pagination -->
 				<div class="clearfix"></div>
 				<div class="row">
@@ -73,14 +75,10 @@
 					
 					<!-- Location -->
 					<div class="sidebar-widget margin-bottom-40">
-						<form action="<?= base_url('berita/cari') ?>" method="GET">
+						<form action="<?= site_url('berita/cari/') ?>" method="GET">
 						<div class="input-with-icon">
 							<input name="query" type="text" placeholder="Cari berita">
 							<i class="icon-material-outline-search"></i>
-						</div>
-						<div class="margin-top-10">
-							<input type="submit" class="button ripple-effect" value="Cari">
-
 						</div>
 						</form>
 					</div>

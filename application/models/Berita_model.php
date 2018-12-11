@@ -26,10 +26,10 @@ class Berita_model extends CI_Model {
     //     return $query = $this->db->get('berita', $number, $offset)->result();        
     // }
 
-    function get_all_berita($limit, $start, $kategori = NULL)
+    function get_all_berita($limit, $start)
     {
-        if ($kategori == "NULL") $kategori = "";
-        $sql = "select * from berita where kategori like '%$kategori%' limit " . $start . ", " . $limit;
+        // if ($kategori == "NULL") $kategori = "";
+        $sql = "select * from berita limit " . $start . ", " . $limit;
         $query = $this->db->query($sql);
         return $query->result();
     }
@@ -53,12 +53,19 @@ class Berita_model extends CI_Model {
         return $query->result();
     }
 
-    public function count_all($kategori = null)
+    public function count_all($kategori)
     {
-        if ($kategori == "NULL") $kategori = "";
-        $sql = "select * from berita where kategori like '%$kategori%'";
+        // if ($kategori == "NULL") $kategori = "";
+        $sql = "select * from berita where judul_berita like '%$kategori%'";
         $query = $this->db->query($sql);
         return $query->num_rows();
+    }
+
+    public function cari_berita($limit, $start, $keywords)
+    {
+        $sql = "select * from berita where judul_berita like '%$keywords%' limit " . $start . ", " . $limit;
+        $query = $this->db->query($sql);
+        return $query->result();
     }
 
 }
