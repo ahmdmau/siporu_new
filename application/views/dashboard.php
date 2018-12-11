@@ -134,6 +134,7 @@
 									<?php if($h->status == 'unpaid') : ?>
 									<div class="buttons-to-right">
 										<a href="<?= base_url('user/konfirmasi_pesanan/') . $h->id ?>" class="button">Selesaikan Pembayaran</a>
+										<a href="<?= base_url('user/batal_pesanan/') . $h->id ?>"  onclick="return confirm('apakah anda yakin?')"  class="button">Batal Pesanan</a>
 									</div>
 									<?php endif ?>
 								</li>
