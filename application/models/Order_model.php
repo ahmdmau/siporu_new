@@ -62,4 +62,9 @@ class Order_model extends CI_Model{
             return false;
         }
     }
+    public function konfirmasi_pesanan($id_invoice)
+    {
+        $this->db->where('id', $id_invoice)->update('invoices', array('status'=>'paid'));
+        return true;    
+    }
 }
