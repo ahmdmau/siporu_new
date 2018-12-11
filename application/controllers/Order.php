@@ -24,4 +24,10 @@ class Order extends CI_Controller{
             redirect('user/keranjang');
         }
     }
+
+    public function success()
+    {
+        $this->session->set_flashdata('berhasil_checkout', 'Proses order berhasil, silahkan lakukan pembayaran sebesar total belanja ke no rekening : 1012098 A!');       
+        $this->load->view('order_success'); 
+    }
 }
