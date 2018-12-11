@@ -76,7 +76,7 @@ class User_model extends CI_Model{
 		}
 	}
 
-	public function mark_invoice_confirmed($id_invoice, $jumlah)
+	public function mark_invoice_confirmed($id_invoice, $jumlah, $gambar)
 	{
 		$ret = true;
 		$invoice = $this->db->where('id', $id_invoice)->limit(1)->get('invoices');
@@ -89,7 +89,7 @@ class User_model extends CI_Model{
 			if($total->row()->total > $jumlah){
 				$ret = $ret && false;
 			} else {
-				$this->db->where('id', $id_invoice)->update('invoices', array('status'=>'confirmed'));
+				$this->db->where('id', $id_invoice)->update('invoices', array('status'=>'confirmed', 'bukti_trf'=>$gambar));
 			}
 		}
 		return $ret;
@@ -240,5 +240,10 @@ class User_model extends CI_Model{
 	}
 	
 
-	
+	public function batal_pesanan($id)
+	{
+		$this->db->delete('invoices', array('id' => $id));
+		$this->db->delete('orders', array('id_invoices' => $id));
+		return true;
+	}
 }
