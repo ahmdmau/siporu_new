@@ -31,7 +31,7 @@
 				<div class="section-headline margin-top-60 margin-bottom-35">
 				</div>
 				<?php if($query == false) { ?>
-				<h3 align="center">Data yang anda cari tidak ditemukan!</h3>
+					<h3 align="center">Data yang anda cari tidak ditemukan!</h3>
 				<?php } else { ?>
 				<!-- Blog Post -->
 				<?php foreach ($query as $berita) { ?>
