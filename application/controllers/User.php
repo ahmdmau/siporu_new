@@ -9,6 +9,9 @@ class User extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('produk_model');
 		$this->load->library('form_validation');
+		if(!isset($this->session->userdata['logged_in'])){
+			redirect(site_url());
+		}
     }
 
     public function dashboard()
@@ -163,7 +166,24 @@ class User extends CI_Controller{
 			}
 			$this->load->view('konfirmasi_pesanan', $data);
 		} else{
-			$isValid = $this->user_model->mark_invoice_confirmed(set_value('id_invoices'), set_value('jumlah'));
+			$config['upload_path'] = './upload/bukti_trf';
+            $config['allowed_types'] = 'tif|jpg|png';
+            $config['overwrite'] = true;
+            $config['max_size'] = '2048';
+            $config['max_width'] = '2000';
+            $config['max_height'] = '2000';
+
+            $this->load->library('upload', $config);
+
+            if(!$this->upload->do_upload('bukti_trf')){
+                    $errors = array('error' => $this->upload->display_errors());
+                    $post_image = 'default.jpg';
+            } else {
+                $data = array('upload_data' => $this->upload->data());
+                $post_image = $data['upload_data']['file_name'];
+			}
+			
+			$isValid = $this->user_model->mark_invoice_confirmed(set_value('id_invoices'), set_value('jumlah'), $post_image);
 			if ($isValid) {
 				$this->session->set_flashdata('message', 'Terima kasih.. Kami akan memeriksa pembarayan pesanan anda!');
 				redirect('user/riwayat_pesanan');
@@ -243,5 +263,13 @@ class User extends CI_Controller{
 		$data['getuser'] = $this->user_model->get_user_invoices($id);
 		$data['getTotal'] = $this->user_model->getTotal($id);
 		$this->load->view('invoice', $data);
+	}
+
+	public function batal_pesanan($id)
+	{
+		$isValid = $this->user_model->batal_pesanan($id);
+		$this->session->set_flashdata('batal_pesan', 'Pesanan telah dibatalkan.');
+		redirect($_SERVER['HTTP_REFERER']);
+
 	}
 }
