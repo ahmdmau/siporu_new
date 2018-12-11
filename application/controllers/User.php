@@ -9,9 +9,7 @@ class User extends CI_Controller{
 		$this->load->model('user_model');
 		$this->load->model('produk_model');
 		$this->load->library('form_validation');
-		if(!isset($this->session->userdata['logged_in'])){
-			redirect(site_url());
-		}
+		
     }
 
     public function dashboard()
