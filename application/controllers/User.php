@@ -15,6 +15,9 @@ class User extends CI_Controller{
 
     public function dashboard()
     {
+		if(!isset($this->session->userdata['logged_in'])){
+            redirect(site_url());
+        }
 		$id = $this->session->userdata['logged_in']['id_pembeli'];
 		$data['riwayat'] = $this->user_model->get_shopping_history($id);
 
@@ -222,7 +225,8 @@ class User extends CI_Controller{
 				$id = $this->session->userdata['logged_in']['id_pembeli'];
 				$config['upload_path'] = './upload/user';
             	$config['allowed_types'] = 'tif|jpg|png';
-            	$config['overwrite'] = true;
+            	$config['file_name'] = $this->input->post('nama_lengkap');
+				$config['overwrite'] = true;
             	$config['max_size'] = '2048';
             	$config['max_width'] = '2000';
             	$config['max_height'] = '2000';

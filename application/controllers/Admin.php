@@ -17,7 +17,7 @@ class Admin extends CI_Controller {
 		$this->ckeditor->config['language'] = 'it';
 		$this->ckeditor->config['width'] = '730px';
 		$this->ckeditor->config['height'] = '300px';            
-													
+        
     }
 
 
@@ -64,7 +64,9 @@ class Admin extends CI_Controller {
 
     public function dashboard()
     {
-        
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		// $this->load->view('admin/index.php');
 		$data['hitungUkm'] = $this->admin_model->get_hitung_ukm()->result();
 		$data['hitungProduk'] = $this->admin_model->get_hitung_produk()->result();
@@ -88,24 +90,36 @@ class Admin extends CI_Controller {
 
 	public function user_ukm()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['userukm'] = $this->admin_model->get_user_ukm();
 		$this->load->view('admin/userukm', $data);
 	}
 
 	public function aktivasi($id)
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['aktivasi'] = $this->admin_model->aktivasi($id);
 		redirect($_SERVER['HTTP_REFERER']);
 	}
 
 	public function berita()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['berita'] = $this->admin_model->get_berita();
 		$this->load->view('admin/berita', $data);
 	}
 
 	public function tambah_berita()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+        redirect(site_url('admin/login'));
+        }
 		$this->load->view('admin/tambah_berita');
 	}
 
@@ -147,6 +161,9 @@ class Admin extends CI_Controller {
 
 	public function update_berita()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$string=preg_replace('/[^a-zA-Z0-9 &%|{.}=,?!*()"-_+$@;<>]/', '', $this->input->post('judul_berita'));
 	    $trim=trim($string);
 	    $pre_slug=strtolower(str_replace(" ", "-", $trim)); 
@@ -207,18 +224,27 @@ class Admin extends CI_Controller {
 
 	public function editberita($id)
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['berita'] = $this->admin_model->get_berita_by_id($id);
 		$this->load->view('admin/editberita', $data);
 	}
 
 	public function event()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['event'] = $this->admin_model->get_event();
 		$this->load->view('admin/event', $data);
 	}
 
 	public function tambah_event()
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$this->load->view('admin/tambah_event');
 	}
 
@@ -266,6 +292,9 @@ class Admin extends CI_Controller {
 
 	public function editevent($id)
 	{
+        if(!isset($this->session->userdata['login_admin'])){
+            redirect(site_url('admin/login'));
+        }
 		$data['event'] = $this->admin_model->get_event_by_id($id);
 		$this->load->view('admin/editevent', $data);
 	}
