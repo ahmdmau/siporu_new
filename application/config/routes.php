@@ -53,6 +53,7 @@ $route['default_controller'] = 'siporu';
 $route['berita/read/(:any)'] = 'berita/detail_berita/$1';
 $route['event/read/(:any)'] = 'event/detail_event/$1';
 $route['ukm/read/(:any)'] = 'ukm/detail_ukm/$1';
+$route['ukm/kategori/(:any)'] = 'ukm/kategori/$1';
 $route['produk/(:any)'] = 'produk/detail_produk/$1';
 $route['user_ukm'] = 'user_ukm/ukm';
 $route['user_ukm/logout'] = 'user_ukm/user/logout';
