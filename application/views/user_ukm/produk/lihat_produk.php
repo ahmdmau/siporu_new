@@ -27,6 +27,11 @@
                                     <?php echo $this->session->flashdata('success'); ?>
                                 </div>
                             <?php endif; ?>
+                            <?php if ($this->session->flashdata('hapus_produk')): ?>
+                                <div class="alert alert-success" role="alert">
+                                    <?php echo $this->session->flashdata('hapus_produk'); ?>
+                                </div>
+                            <?php endif; ?>
                                 <!-- Begin Widget 07 -->
                                 <div class="widget widget-07 has-shadow">
                                     <!-- Begin Widget Header -->

@@ -30,11 +30,20 @@
 						<ul data-submenu-title="Dashboard">
 							<li><a href="<?= base_url('user/dashboard') ?>"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
 							<li><a href="<?= base_url('user/konfirmasi_pesanan') ?>"><i class="icon-material-outline-shopping-cart"></i> Konfirmasi Pesanan</a></li>
-							<li class="active"><a href="<?= base_url('user/riwayat_transaksi') ?>"><i class="icon-material-outline-question-answer"></i> Riwayat Transaksi</a></li>
+							<li class="active"><a href="<?= base_url('user/riwayat_pesanan') ?>"><i class="icon-material-outline-question-answer"></i> Riwayat Transaksi 
+							<?php if (sizeof($total) <= 0) { ?>
+                        	<?php } else { ?>
+							<?php foreach($total as $t) { ?>
+								<span class="nav-tag">
+								<?= $t->count ?>
+								</span>
+							<?php } } ?>
+								
+							</a></li>
 						</ul>
 						<ul data-submenu-title="Account">
 							<li><a href="<?= base_url('user/setting') ?>"><i class="icon-material-outline-settings"></i> Settings</a></li>
-							<li><a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+							<li><a href="<?= base_url('user/logout') ?>"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
 						</ul>
 					</div>
 				</div>

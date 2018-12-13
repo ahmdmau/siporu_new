@@ -50,54 +50,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                                <div class="form-group row d-flex align-items-center mb-5">
-                                                    <label class="col-lg-4 form-control-label d-flex justify-content-lg-end">Teknologi *</label>
-                                                    <div class="col-lg-5">
-                                                        <div class="select">
-                                                            <select name="id_teknologi" class="custom-select form-control" required>
-                                                            <option value="">Pilih Teknologi</option>
-                                                             <?php foreach ($teknologi as $teknologi) : ?>
-                                                                <option value="<?php echo $teknologi->id_teknologi; ?>"><?php echo $teknologi->nama; ?></option>
-                                                            <?php endforeach; ?>
-                                                            </select>
-                                                            <div class="invalid-feedback">
-                                                                Please select an option
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                    <label class="col-lg-4 form-control-label d-flex justify-content-lg-end">Komoditas *</label>
-                                                    <div class="col-lg-5">
-                                                        <div class="select">
-                                                            <select name="id_komoditas" class="custom-select form-control" required>
-                                                            <option value="">Pilih Komoditas</option>
-                                                             <?php foreach ($komoditas as $komoditas) : ?>
-                                                                <option value="<?php echo $komoditas->id_komoditas; ?>"><?php echo $komoditas->nama_komoditas; ?></option>
-                                                            <?php endforeach; ?>
-                                                            </select>
-                                                            <div class="invalid-feedback">
-                                                                Please select an option
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            <div class="form-group row d-flex align-items-center mb-5">
-                                                    <label class="col-lg-4 form-control-label d-flex justify-content-lg-end">Bahan Baku *</label>
-                                                    <div class="col-lg-5">
-                                                        <div class="select">
-                                                            <select name="id_bbaku" class="custom-select form-control" required>
-                                                            <option value="">Pilih Bahan Baku</option>
-                                                             <?php foreach ($bbaku as $bbaku) : ?>
-                                                                <option value="<?php echo $bbaku->id_bbaku; ?>"><?php echo $bbaku->bb_nama; ?></option>
-                                                            <?php endforeach; ?>
-                                                            </select>
-                                                            <div class="invalid-feedback">
-                                                                Please select an option
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             <div class="form-group row d-flex align-items-center mb-5">
                                                 <label class="col-lg-4 form-control-label d-flex justify-content-lg-end">Nama Produk</label>
                                                 <div class="col-lg-5">

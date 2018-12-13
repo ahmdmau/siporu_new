@@ -63,4 +63,42 @@ class Ukm_model extends CI_Model{
         $query = $this->db->query($sql);
         return $query->result();
     }
+
+    public function get_ukm_by_kategori($kategori, $limit, $start)
+    {
+        if($kategori == 'pertanian') {
+            $id_kategori = 1;
+        } elseif ($kategori == 'perikanan') {
+            $id_kategori = 2;            
+        } elseif ($kategori == 'peternakan') {
+            $id_kategori = 3;            
+        } elseif ($kategori == 'perkebunan') {
+            $id_kategori = 4;            
+        } 
+        // $this->db->select('*');
+        // $this->db->from('ukm');
+        // $this->db->where('id_kategori', $id_kategori);
+        // $this->db->limit('id_kategori', $id_kategori);
+        // $query = $this->db->get();
+        $sql = "select * from ukm where id_kategori = '$id_kategori' limit " . $start . ", " . $limit;
+        $query = $this->db->query($sql);
+        return $query;     
+    }
+
+    function get_ukm_count_by_kategori($kategori)
+    {
+        if($kategori == 'pertanian') {
+            $id_kategori = 1;
+        } elseif ($kategori == 'perikanan') {
+            $id_kategori = 2;            
+        } elseif ($kategori == 'peternakan') {
+            $id_kategori = 3;            
+        } elseif ($kategori == 'perkebunan') {
+            $id_kategori = 4;            
+        } 
+
+        $sql = "select * from ukm where id_kategori = '$id_kategori' ";
+        $query = $this->db->query($sql);
+        return $query->num_rows();
+    }
 }

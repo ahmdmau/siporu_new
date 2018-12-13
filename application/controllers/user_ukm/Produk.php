@@ -39,9 +39,6 @@ class Produk extends CI_Controller {
         
         // get data
         $data["kategori"] = $this->produkukm_model->getKategori();
-        $data["komoditas"] = $this->produkukm_model->getKomoditas();
-        $data["teknologi"] = $this->produkukm_model->getTeknologi();
-        $data["bbaku"] = $this->produkukm_model->getBbaku();
 
         // Form Validasi
         $this->form_validation->set_rules('nama_produk', 'Nama_Produk', 'required');
@@ -55,6 +52,7 @@ class Produk extends CI_Controller {
             $config['upload_path'] = './upload/produk';
             $config['allowed_types'] = 'tif|jpg|png';
             $config['overwrite'] = true;
+            $config['file_name'] = $this->input->post('nama_produk');
             $config['max_size'] = '2048';
             $config['max_width'] = '2000';
             $config['max_height'] = '2000';
@@ -71,8 +69,7 @@ class Produk extends CI_Controller {
 
             $this->produkukm_model->insertData($post_image);
 
-            $this->session->set_flashdata('success', 'Simpan Data Sukses');
-
+            $this->session->set_flashdata('success', 'Simpan Data Sukses');            
             redirect('user_ukm/produk');
         }
 
@@ -89,11 +86,8 @@ class Produk extends CI_Controller {
         $where = array('id_produk' => $id);
         $data['produk'] = $this->produkukm_model->edit_data('produk', $where)->result();
         $data["kategori"] = $this->produkukm_model->getKategori();
-        $data["komoditas"] = $this->produkukm_model->getKomoditas();
-        $data["teknologi"] = $this->produkukm_model->getTeknologi();
-        $data["bbaku"] = $this->produkukm_model->getBbaku();
         $data['image_o'] = $this->foto;
-        $this->load->view('user_ukm/produk/edit_produk', $data);        
+        $this->load->view('user_ukm/produk/edit_produk', $data);  
     }
 
     public function update()
@@ -108,9 +102,6 @@ class Produk extends CI_Controller {
         $harga        = $this->input->post('harga');
         $stok         = $this->input->post('stok');
         $id_kategori  = $this->input->post('id_kategori');
-        $id_komoditas = $this->input->post('id_komoditas');
-        $id_teknologi = $this->input->post('id_teknologi');
-        $id_bbaku     = $this->input->post('id_bbaku');
         $id_produk     = $this->input->post('id_produk');
 
         if (!empty($_FILES['gambar']['name'])) {
@@ -132,9 +123,6 @@ class Produk extends CI_Controller {
 
         $data = array(
             "id_kategori"  => $id_kategori,
-            "id_teknologi" => $id_teknologi,
-            "id_komoditas" => $id_komoditas,
-            "id_bbaku"     => $id_bbaku,
             "nama_produk"  => $nama_produk,
             "gambar"       => $gambar,
             "harga"        => $harga,
@@ -151,7 +139,7 @@ class Produk extends CI_Controller {
         if ($res == true) {
             $this->session->set_flashdata('success', 'Berhasil disimpan');
         } else {
-            $this->session->set_flashdata('success', 'Berhasil disimpan');
+            $this->session->set_flashdata('success', 'Gagal Update data');
         }
 
         redirect(base_url('user_ukm/produk/'));
@@ -161,7 +149,10 @@ class Produk extends CI_Controller {
     public function hapus($id)
     {
         $where = array('id_produk' => $id);
-        $this->produkukm_model->hapus_data($where, 'produk');
-        redirect(base_url('user_ukm/produk/index'));
+        $sql = $this->produkukm_model->hapus_data($where, 'produk');
+        if ($sql == true) {
+            $this->session->set_flashdata('hapus_produk', 'Data berhasil dihapus');
+        }
+        redirect(base_url('user_ukm/produk/'));
     }
 }

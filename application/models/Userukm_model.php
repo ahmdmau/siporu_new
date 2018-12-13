@@ -14,6 +14,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 	    	$data = array(
 	    		'nama_ukm' => $this->input->post('nama_ukm'),
+	    		'id_kategori' => $this->input->post('id_kategori'),
 	    		'nama_pemilik' => $this->input->post('nama_pemilik'),
 	    		'email' => $this->input->post('email'),
 	    		'password' => $enc_password,
@@ -101,7 +102,29 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 			} else {
 				return false;
 			}
-    	}
+		}
+		
+		public function get_kategori()
+		{
+			$this->db->select('*');
+			$this->db->from('kategori');
+			$query = $this->db->get();
+			if($query){
+				return $query->result();
+			}
+		}
+
+		public function hitung_produk_ukm($id)
+		{
+			$query = $this->db->query("SELECT COUNT(*) as count FROM produk where id_ukm='$id'");
+			return $query;
+		}
+
+		public function hitung_pesanan($id)
+		{
+			$query = $this->db->query("SELECT COUNT(*) as count FROM invoices where id_ukm='$id'");
+			return $query;
+		}
 	}
 
 

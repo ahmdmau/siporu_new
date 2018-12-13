@@ -31,6 +31,9 @@
 				<div class="section-headline margin-top-60 margin-bottom-35">
 				</div>
 
+				<?php if($event==false) : ?>
+					<center><h3>Tidak ada data.</h3></center>
+				<?php endif; ?>
 				<!-- Blog Post -->
 				<?php foreach ($event as $event) { ?>
 				<a href="<?php echo base_url()  . 'event/read/' . $event->slug ?>" class="blog-post">
@@ -75,7 +78,7 @@
 					<div class="sidebar-widget margin-bottom-40">
 					<form action="<?= base_url('event/cari') ?>" method="GET">
 						<div class="input-with-icon">
-							<input name="query" type="text" placeholder="Cari event">
+							<input name="query" type="text" placeholder="Cari event" required>
 							<i class="icon-material-outline-search"></i>
 						</div>
 						<div class="margin-top-10">

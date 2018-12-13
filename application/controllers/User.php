@@ -200,13 +200,16 @@ class User extends CI_Controller{
 	public function riwayat_pesanan()
 	{
 		$id = $this->session->userdata['logged_in']['id_pembeli'];
+		$data["total"] = $this->user_model->hitung_transaksi($id)->result();
 		$data['riwayat'] = $this->user_model->get_shopping_history($id);
 		$this->load->view('riwayat', $data);
 	}
 
 	public function setting()
 	{
+		$id = $this->session->userdata['logged_in']['id_pembeli'];
 		$email = $this->session->userdata['logged_in']['email'];
+		$data["total"] = $this->user_model->hitung_transaksi($id)->result();
 		$data['user'] = $this->user_model->get_user_data($email);
 		$this->load->view('setting', $data);
 	}
@@ -268,6 +271,8 @@ class User extends CI_Controller{
 	
 	public function detail_pesanan($id)
 	{
+		$idp = $this->session->userdata['logged_in']['id_pembeli'];
+		$data["total"] = $this->user_model->hitung_transaksi($idp)->result();
 		$data['detail'] = $this->user_model->get_detail_pesanan($id);
 		$data['detailI'] = $this->user_model->get_invoices_id($id);
 		$this->load->view('detail_pesanan', $data);

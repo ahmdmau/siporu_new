@@ -12,7 +12,7 @@
 				<!-- Breadcrumbs -->
 				<nav id="breadcrumbs" class="dark">
 					<ul>
-						<li><a href="#">Home</a></li>
+						<li><a href="<?= base_url() ?>">Beranda</a></li>
 						<li>Kontak</li>
 					</ul>
 				</nav>

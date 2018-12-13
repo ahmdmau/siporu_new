@@ -64,24 +64,6 @@ class Produkukm_model extends CI_Model {
     }
 
 
-    public function getKomoditas()
-    {
-        return $this->db->get($this->_tabelkomoditas)->result();
-    }
-
-
-    public function getTeknologi()
-    {
-        return $this->db->get($this->_tabelteknologi)->result();
-    }
-
-
-    public function getBbaku()
-    {
-        return $this->db->get($this->_tabelbbaku)->result();
-    }
-
-
     // Tambah Produk
     public function insertData($post_image)
     {   
@@ -95,17 +77,11 @@ class Produkukm_model extends CI_Model {
         $harga        = $this->input->post('harga');
         $stok         = $this->input->post('stok');
         $id_kategori  = $this->input->post('id_kategori');
-        $id_komoditas = $this->input->post('id_komoditas');
-        $id_teknologi = $this->input->post('id_teknologi');
-        $id_bbaku     = $this->input->post('id_bbaku');
         $id_ukm       = $this->session->userdata['login_ukm']['id_ukm'];
         
         $dataa = array(
             "id_ukm" => $id_ukm,
             "id_kategori"  => $id_kategori,
-            "id_teknologi" => $id_teknologi,
-            "id_komoditas" => $id_komoditas,
-            "id_bbaku"     => $id_bbaku,
             "nama_produk"  => $nama_produk,
             "gambar"       => $post_image,
             "harga"        => $harga,
@@ -129,8 +105,7 @@ class Produkukm_model extends CI_Model {
     }
 
     function hapus_data($where,$table){
-        $this->db->where($where);
-        $this->db->delete($table);
+        return $this->db->where($where)->delete($table); 
     }
 
 

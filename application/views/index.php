@@ -70,40 +70,48 @@
 
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-1.html" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-1.jpg') ?>">
+				<a href="<?= base_url('ukm/kategori/pertanian') ?>" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-1.jpg') ?>">
 					<div class="photo-box-content">
 						<h3>Pertanian</h3>
-						<span>612</span>
+						<?php foreach($hitungPertanian as $t) { ?>
+						<span><?= $t->count ?></span>
+						<?php } ?>
 					</div>
 				</a>
 			</div>
 			
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-full-page-map.html" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-2.jpg') ?>">
+				<a href="<?= base_url('ukm/kategori/perikanan') ?>" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-2.jpg') ?>">
 					<div class="photo-box-content">
 						<h3>Perikanan</h3>
-						<span>113</span>
+						<?php foreach($hitungPerikanan as $t) { ?>
+						<span><?= $t->count ?></span>
+						<?php } ?>
 					</div>
 				</a>
 			</div>
 			
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-grid-layout-full-page.html" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-3.jpg') ?>">
+				<a href="<?= base_url('ukm/kategori/peternakan') ?>" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-3.jpg') ?>">
 					<div class="photo-box-content">
 						<h3>Peternakan</h3>
-						<span>186</span>
+						<?php foreach($hitungPerikanan as $t) { ?>
+						<span><?= $t->count ?></span>
+						<?php } ?>
 					</div>
 				</a>
 			</div>
 
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-2.html" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-4.jpg') ?>">
+				<a href="<?= base_url('ukm/kategori/perkebunan') ?>" class="photo-box small" data-background-image="<?php echo base_url('assets/user/images/cat-4.jpg') ?>">
 					<div class="photo-box-content">
 						<h3>Perkebunan</h3>
-						<span>298</span>
+						<?php foreach($hitungPerkebunan as $t) { ?>
+						<span><?= $t->count ?></span>
+						<?php } ?>
 					</div>
 				</a>
 			</div>
@@ -118,7 +126,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-xl-12">
-				
+				<?php if ($ukm == false) { ?>
+					<center>Tidak ada Data</center>
+				<?php } else{ ?>
 				<!-- Section Headline -->
 				<div class="section-headline margin-top-0 margin-bottom-35">
 					<h3>Ukm terbaru</h3>
@@ -150,7 +160,7 @@
 						</ul>
 					</div>
 				</a>
-                <?php } ?>
+                <?php } } ?>
 				
 				
 				
@@ -178,7 +188,7 @@
 					<!-- Blog Post Item -->
 					<?php foreach ($berita as $b) { ?>
 					<div class="col-xl-4 col-md-6">
-						<a href="<?php echo base_url()  . 'berita/' . $b->slug ?>" class="blog-compact-item-container">
+						<a href="<?php echo base_url()  . 'berita/read/' . $b->slug ?>" class="blog-compact-item-container">
 							<div class="blog-compact-item">
 								<img src="<?php echo base_url('upload/berita/'.$b->gambar) ?>" alt="">
 								<span class="blog-item-tag"><?php echo $b->kategori ?></span>

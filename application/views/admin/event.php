@@ -34,6 +34,16 @@
               <?php echo $this->session->flashdata('tambah_event_success'); ?>
             </div>
             <?php endif ?>
+            <?php if ($this->session->flashdata('success_update_event')): ?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $this->session->flashdata('success_update_event'); ?>
+            </div>
+            <?php endif ?>
+            <?php if ($this->session->flashdata('hapus_event_success')): ?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $this->session->flashdata('hapus_event_success'); ?>
+            </div>
+            <?php endif ?>
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <a href="<?= base_url('admin/tambah_event') ?>" class="btn btn-primary" style="float: right;">Tambah Event</a>
@@ -53,15 +63,15 @@
                     $no++ ?>
                     <tr>
                       <td><?= $no++ ?></td>
-                      <td><?= $e->nama_event ?></td>
-                      <td><?= $e->deskripsi ?></td>
+                      <td width="200px;"><?= $e->nama_event ?></td>
+                      <td width="180px;"><?= substr($e->deskripsi, 0, 150) ?>...</td>
                       <td><?= $e->tanggal_event ?></td>
                       <td>
                         <img width="150px;" src="<?= base_url('upload/event/' . $e->gambar) ?>" alt="">
                       </td>
                       <td>
-                        <a class="btn btn-primary" href="<?= base_url('admin/admin/editevent/' . $e->id_event) ?>">Edit</a>
-                        <a class="btn btn-danger" href="<?= base_url('admin/admin/hapusevent/' . $e->id_event) ?>">Hapus</a>
+                        <a class="btn btn-primary" href="<?= base_url('admin/editevent/' . $e->id_event) ?>">Edit</a>
+                        <a class="btn btn-danger" href="<?= base_url('admin/hapusevent/' . $e->id_event) ?>" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                       </td>
                     </tr>
                     <?php endforeach ?>

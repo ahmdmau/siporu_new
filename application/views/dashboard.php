@@ -123,6 +123,8 @@
 											<li><span class="unpaid"><?= $h->status ?></span></li>
 											<?php elseif($h->status == 'confirmed') : ?>
 											<li><span class="unpaid" style="background-color:#49a8ce"><?= $h->status ?></span></li>
+											<?php elseif($h->status == 'paid') : ?>
+											<li><span class="unpaid" style="background-color:#49a8ce"><?= $h->status ?></span></li>
 											<?php endif;?>
 											<li>Id Order: <?= $h->id ?></li>
 											<li>Due Date: <?= $h->due_date ?></li>

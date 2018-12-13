@@ -24,7 +24,7 @@
             <?php if ($this->session->flashdata('error')): ?>
 								<p><?php echo $this->session->flashdata('error'); ?></p>
 							<?php endif; ?>
-              <form method="post" action="<?= base_url('admin/admin/aksi_tambah_berita') ?>" enctype='multipart/form-data'>
+              <form method="post" action="<?= base_url('admin/aksi_tambah_berita') ?>" enctype='multipart/form-data'>
                 <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" id="lastName" class="form-control" name="judul_berita" placeholder="Judul Berita" required="required">

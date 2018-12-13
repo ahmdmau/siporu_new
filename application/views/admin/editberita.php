@@ -24,7 +24,7 @@
             <?php if ($this->session->flashdata('msg')): ?>
 								<p><?php echo $this->session->flashdata('msg'); ?></p>
 							<?php endif; ?>
-              <form method="post" action="<?= base_url('admin/admin/aksi_berita') ?>" enctype='multipart/form-data'>
+              <form method="post" action="<?= base_url('admin/update_berita') ?>" enctype='multipart/form-data'>
                 <?php foreach ($berita as $b) { ?>
                   <input type="hidden" name="id_berita" value="<?php echo $b->id_berita ?>">
                 <div class="form-group">

@@ -32,6 +32,18 @@
             </div>
             <?php endif ?>
 
+            <?php if ($this->session->flashdata('tambah_berita_success')): ?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $this->session->flashdata('tambah_berita_success'); ?>
+            </div>
+            <?php endif ?>
+
+            <?php if ($this->session->flashdata('success_hapus')): ?>
+            <div class="alert alert-success" role="alert">
+              <?php echo $this->session->flashdata('success_hapus'); ?>
+            </div>
+            <?php endif ?>
+
             <?php if ($this->session->flashdata('success_update')): ?>
             <div class="alert alert-success" role="alert">
               <?php echo $this->session->flashdata('success_update'); ?>
@@ -69,8 +81,8 @@
                         <img width="180px" src="<?= base_url('upload/berita/' . $b->gambar) ?>" alt="">
                       </td>
                       <td>
-                        <a class="btn btn-primary" href="<?= base_url('admin/admin/editberita/' . $b->id_berita)?>">Edit</a>
-                        <a class="btn btn-danger" href="<?= base_url('admin/admin/hapusberita/' . $b->id_berita)?>">Hapus</a>
+                        <a class="btn btn-primary" href="<?= base_url('admin/editberita/' . $b->id_berita)?>">Edit</a>
+                        <a class="btn btn-danger" href="<?= base_url('admin/hapusberita/' . $b->id_berita)?>" onclick="return confirm('apakah anda yakin?')">Hapus</a>
                       </td>
                      
                     </tr>

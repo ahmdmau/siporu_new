@@ -48,6 +48,12 @@
                                     <?php echo $this->session->flashdata('msg'); ?>
                                 </div>
                             <?php endif; ?>
+                            <?php if ($this->session->flashdata('daftar_ukm')): ?>
+                                <div class="alert alert-success alert-dissmissible fade show" role="alert">
+                                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                                    <?php echo $this->session->flashdata('daftar_ukm'); ?>
+                                </div>
+                            <?php endif; ?>
                              <?php if ($this->session->flashdata('msg_error')): ?>
                                 <div class="alert alert-danger alert-dissmissible fade show" role="alert">
                                     <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
@@ -175,9 +181,26 @@
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row mb-3">
-                                                                <div class="col-xl-12">
+                                                                <div class="col-xl-6 mb-3">
                                                                     <label class="form-control-label">Alamat</label>
                                                                     <textarea class="form-control" name="alamat" placeholder="Alamat ukm" required></textarea>
+                                                                </div>
+                                                                <div class="col-xl-6 mb-3">
+                                                                    <label class="form-control-label">Kategori Ukm</label>
+                                                                    <div class="select">
+                                                                        <select name="id_kategori" class="custom-select form-control" required="">
+                                                                        <option value="">Pilih Kategori Ukm</option>
+                                                                        <?php
+                                                                            $no = 0; 
+                                                                            foreach($kategori as $k) : 
+                                                                        ?>
+                                                                        <option value="<?= ++$no?>"><?= $k->nama_kategori ?></option>
+                                                                        <?php endforeach; ?>
+                                                                        </select>
+                                                                        <div class="invalid-feedback">
+                                                                        Pilih salah satu Kategori
+                                                                        </div>
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                             <div class="form-group row mb-3">

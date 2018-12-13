@@ -38,4 +38,3 @@
       </div>
     </div>
 
-<?php $this->load->view("admin/bagian/footer.php") ?>

@@ -22,14 +22,16 @@ class User extends CI_Controller
     	$this->form_validation->set_rules('username', 'Username', 'required|callback_check_username_exists');
     	$this->form_validation->set_rules('email', 'Email', 'required|callback_check_email_exists');
     	$this->form_validation->set_rules('password', 'Password', 'required');
+		$data['kategori'] = $this->userukm_model->get_kategori();
 
     	if ($this->form_validation->run() == FALSE) {
 			$this->session->set_flashdata('errors', validation_errors());
-			$this->load->view('user_ukm/login');
+			$this->load->view('user_ukm/login', $data);
 		} else {
 			$config['upload_path'] = './upload/ukm';
             $config['allowed_types'] = 'tif|jpg|png';
             $config['overwrite'] = true;
+            $config['file_name'] = $this->input->post('nama_ukm');
             $config['max_size'] = '2048';
             $config['max_width'] = '2000';
             $config['max_height'] = '2000';
@@ -47,8 +49,8 @@ class User extends CI_Controller
 			$enc_password = md5($this->input->post('password'));
 			$this->userukm_model->register($enc_password, $post_image);
 
-			$this->session->set_flashdata('msg', 'Pendaftaran UKM berhasil, silahkan login!');
-			redirect('user_ukm/');
+			$this->session->set_flashdata('daftar_ukm', 'Pendaftaran UKM berhasil, tunggu admin konfirmasi admin untuk login!');
+			$this->load->view('user_ukm/login', $data);
 		}
     }
 
@@ -57,11 +59,13 @@ class User extends CI_Controller
     	$this->form_validation->set_rules('username', 'Username', 'trim|required|xss_clean');
 		$this->form_validation->set_rules('password', 'Password', 'trim|required|xss_clean');
 
+		$data['kategori'] = $this->userukm_model->get_kategori();
+
 		if ($this->form_validation->run() == FALSE) {
 			if(isset($this->session->userdata['login_ukm'])){
 				$this->load->view('user_ukm/index');
 			}else{
-				$this->load->view('user_ukm/login');
+				$this->load->view('user_ukm/login', $data);
 			}
 		} else {
 			$data = array(
@@ -87,14 +91,14 @@ class User extends CI_Controller
 					redirect(base_url('user_ukm'));
 				} else {
 					$this->session->set_flashdata('msg_error', 'Akun anda belum di konfirmasi');
-					$this->load->view('user_ukm/login');
+					$this->load->view('user_ukm/login', $data);
 				}
 
 					
 				}
 			} else {
 				$this->session->set_flashdata('msg_error', 'Gagal');
-				$this->load->view('user_ukm/login');
+				$this->load->view('user_ukm/login', $data);
 			}
 		}
     }

@@ -66,25 +66,19 @@
 				
 				<!-- Location -->
 				<div class="sidebar-widget margin-bottom-40">
-					<div class="input-with-icon">
-						<input id="autocomplete-input" type="text" placeholder="Search">
-						<i class="icon-material-outline-search"></i>
-					</div>
-				</div>
+				<form action="<?= base_url('berita/cari') ?>" method="GET">
+						<div class="input-with-icon">
+							<input name="query" type="text" placeholder="Cari berita">
+							<i class="icon-material-outline-search"></i>
+						</div>
+						<div class="margin-top-10">
+							<input type="submit" class="button ripple-effect" value="Cari">
 
-				<!-- Widget -->
-				<div class="sidebar-widget">
-					<h3>Tags</h3>
-					<div class="task-tags">
-						<a href="#"><span>employer</span></a>
-						<a href="#"><span>recruiting</span></a>
-						<a href="#"><span>work</span></a>
-						<a href="#"><span>salary</span></a>
-						<a href="#"><span>tips</span></a>
-						<a href="#"><span>income</span></a>
-						<a href="#"><span>application</span></a>
+						</div>
+						</form>
 					</div>
 				</div>
+				
 
 			</div>
 		</div>

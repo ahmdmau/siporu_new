@@ -21,7 +21,7 @@
               <i class="fas fa-table"></i>
             Tambah Event</div>
             <div class="card-body">
-              <form method="post" action="<?= base_url('admin/admin/aksi_event')?>" enctype='multipart/form-data'>
+              <form method="post" action="<?= base_url('admin/aksi_event')?>" enctype='multipart/form-data'>
                 <div class="form-group">
                   <div class="form-label-group">
                     <input type="text" id="lastName" class="form-control" placeholder="Nama Event" name="nama_event" required="required">

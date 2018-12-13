@@ -24,7 +24,7 @@
             <?php if ($this->session->flashdata('msg')): ?>
 								<p><?php echo $this->session->flashdata('msg'); ?></p>
 							<?php endif; ?>
-              <form method="post" action="<?= base_url('admin/admin/update_event') ?>" enctype='multipart/form-data'>
+              <form method="post" action="<?= base_url('admin/update_event') ?>" enctype='multipart/form-data'>
                 <?php foreach ($event as $e) { ?>
                   <input type="hidden" name="id_event" value="<?php echo $e->id_event ?>">
                 <div class="form-group">
@@ -48,7 +48,7 @@
                   </div>
                 </div>
                 <?php } ?>
-                <button tpe="submit" class="btn btn-primary">Tambah Berita</button>
+                <button tpe="submit" class="btn btn-primary">Simpan</button>
               </form>
             </div>
           </div>

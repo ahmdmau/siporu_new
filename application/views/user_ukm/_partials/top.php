@@ -26,7 +26,7 @@ if (isset($this->session->userdata['login_ukm'])) {
                     <div class="navbar-holder d-flex align-items-center align-middle justify-content-between">
                         <!-- Begin Logo -->
                         <div class="navbar-header">
-                            <a href="db-default.html" class="navbar-brand">
+                            <a href="<?= base_url('user_ukm') ?>" class="navbar-brand">
                                 <div class="brand-image brand-big">
                                     <img src="<?php echo base_url('assets/user/images/logo.png') ?>" alt="logo" class="logo-big">
                                 </div>
@@ -55,7 +55,7 @@ if (isset($this->session->userdata['login_ukm'])) {
                             <li class="nav-item dropdown"><a id="user" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><img src="<?= base_url('upload/ukm/' . $gambar)?>" alt="..." class="avatar rounded-circle"></a>
                                 <ul aria-labelledby="user" class="user-size dropdown-menu">
                                     <li class="welcome">
-                                        <a href="#" class="edit-profil"><i class="la la-gear"></i></a>
+                                        <a href="<?= base_url("user_ukm/pengaturan") ?>" class="edit-profil"><i class="la la-gear"></i></a>
                                         <img src="<?= base_url('upload/ukm/' . $gambar)?>" alt="..." class="rounded-circle">
                                     </li>
                                     <li><a rel="nofollow" href="<?php echo base_url('user_ukm/user/logout') ?>" class="dropdown-item logout text-center"><i class="ti-power-off"></i></a></li>

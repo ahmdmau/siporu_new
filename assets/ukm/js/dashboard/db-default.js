@@ -102,7 +102,7 @@
 			labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
 			datasets: [{
 				label: 'Delivered',
-				data: [30, 24, 22, 17, 22, 24, 9, 14, 20, 13, 17, 13],
+				data: [1, 24, 22, 17, 22, 24, 9, 14, 20, 13, 17, 13],
 				borderColor: "#fff",
 				backgroundColor: "#5d5386",
 				hoverBackgroundColor: "#483d77"

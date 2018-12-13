@@ -75,10 +75,10 @@
 					<div class="footer-links">
 						<h3>Kategori Ukm</h3>
 						<ul>
-							<li><a href="#"><span>Pertanian</span></a></li>
-							<li><a href="#"><span>Perkebunan</span></a></li>
-							<li><a href="#"><span>Peternakan</span></a></li>
-							<li><a href="#"><span>Perikanan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/pertanian') ?>"><span>Pertanian</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/perkebunan') ?>"><span>Perkebunan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/peternakan') ?>"><span>Peternakan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/perikanan') ?>"><span>Perikanan</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -88,10 +88,9 @@
 					<div class="footer-links">
 						<h3>Siporu</h3>
 						<ul>
-							<li><a href="#"><span>Telusuri Ukm</span></a></li>
-							<li><a href="#"><span>Produk Ukm</span></a></li>
-							<li><a href="#"><span>Berita</span></a></li>
-							<li><a href="#"><span>Event</span></a></li>
+							<li><a href="<?= base_url('ukm') ?>"><span>Telusuri Ukm</span></a></li>
+							<li><a href="<?= base_url('berita') ?>"><span>Berita</span></a></li>
+							<li><a href="<?= base_url('event') ?>"><span>Event</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -101,9 +100,7 @@
 					<div class="footer-links">
 						<h3>Links</h3>
 						<ul>
-							<li><a href="#"><span>Kontak</span></a></li>
-							<li><a href="#"><span>Privacy Policy</span></a></li>
-							<li><a href="#"><span>Terms of Use</span></a></li>
+							<li><a href="<?= base_url('kontak') ?>"><span>Kontak</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -113,8 +110,8 @@
 					<div class="footer-links">
 						<h3>Akun</h3>
 						<ul>
-							<li><a href="#"><span>Log In</span></a></li>
-							<li><a href="#"><span>My Account</span></a></li>
+							<li><a href="#sign-in-dialog" class="popup-with-zoom-anim"><span>Masuk</span></a></li>
+							<li><a href="#sign-in-dialog" class="popup-with-zoom-anim"><span>Daftar</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -285,10 +282,10 @@ $('#snackbar-user-status label').click(function() {
 					<div class="footer-links">
 						<h3>Kategori Ukm</h3>
 						<ul>
-							<li><a href="#"><span>Pertanian</span></a></li>
-							<li><a href="#"><span>Perkebunan</span></a></li>
-							<li><a href="#"><span>Peternakan</span></a></li>
-							<li><a href="#"><span>Perikanan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/pertanian') ?>"><span>Pertanian</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/perkebunan') ?>"><span>Perkebunan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/peternakan') ?>"><span>Peternakan</span></a></li>
+							<li><a href="<?= base_url('ukm/kategori/perikanan') ?>"><span>Perikanan</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -298,10 +295,9 @@ $('#snackbar-user-status label').click(function() {
 					<div class="footer-links">
 						<h3>Siporu</h3>
 						<ul>
-							<li><a href="#"><span>Telusuri Ukm</span></a></li>
-							<li><a href="#"><span>Produk Ukm</span></a></li>
-							<li><a href="#"><span>Berita</span></a></li>
-							<li><a href="#"><span>Event</span></a></li>
+							<li><a href="<?= base_url('ukm') ?>"><span>Telusuri Ukm</span></a></li>
+							<li><a href="<?= base_url('berita') ?>"><span>Berita</span></a></li>
+							<li><a href="<?= base_url('event') ?>"><span>Event</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -311,9 +307,7 @@ $('#snackbar-user-status label').click(function() {
 					<div class="footer-links">
 						<h3>Links</h3>
 						<ul>
-							<li><a href="#"><span>Kontak</span></a></li>
-							<li><a href="#"><span>Privacy Policy</span></a></li>
-							<li><a href="#"><span>Terms of Use</span></a></li>
+							<li><a href="<?= base_url('kontak') ?>"><span>Kontak</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -323,12 +317,11 @@ $('#snackbar-user-status label').click(function() {
 					<div class="footer-links">
 						<h3>Akun</h3>
 						<ul>
-							<li><a href="#"><span>Log In</span></a></li>
-							<li><a href="#"><span>My Account</span></a></li>
+							<li><a href="#sign-in-dialog" class="popup-with-zoom-anim"><span>Masuk</span></a></li>
+							<li><a href="#sign-in-dialog" class="popup-with-zoom-anim"><span>Daftar</span></a></li>
 						</ul>
 					</div>
 				</div>
-
 				<!-- Newsletter -->
 			</div>
 		</div>

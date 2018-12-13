@@ -17,6 +17,8 @@ class Siporu_model extends CI_Model {
                           ->get();
         if ($query->num_rows() > 0) {
             return $query->result();
+        } else {
+            return false;
         }
     }
 
@@ -57,6 +59,30 @@ class Siporu_model extends CI_Model {
     public function get_hitung_produk()
     {
         $query = $this->db->query("SELECT COUNT(*) as count FROM produk");
+		return $query;
+    }
+
+    public function get_hitung_pertanian()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count FROM produk where id_kategori = 1");
+		return $query;
+    }
+
+    public function get_hitung_perikanan()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count FROM produk where id_kategori = 2");
+		return $query;
+    }
+
+    public function get_hitung_peternakan()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count FROM produk where id_kategori = 3");
+		return $query;
+    }
+
+    public function get_hitung_perkebunan()
+    {
+        $query = $this->db->query("SELECT COUNT(*) as count FROM produk where id_kategori = 4");
 		return $query;
     }
 
