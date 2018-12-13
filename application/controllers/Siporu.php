@@ -23,6 +23,10 @@ class Siporu extends CI_Controller {
 		$data['ukm'] = $this->siporu_model->get_ukm_home();
 		$data['berita'] = $this->berita_model->get_berita_home();
 		$data['hitungUkm'] = $this->siporu_model->get_hitung_ukm()->result();
+		$data['hitungPertanian'] = $this->siporu_model->get_hitung_pertanian()->result();
+		$data['hitungPerikanan'] = $this->siporu_model->get_hitung_perikanan()->result();
+		$data['hitungPeternakan'] = $this->siporu_model->get_hitung_peternakan()->result();
+		$data['hitungPerkebunan'] = $this->siporu_model->get_hitung_perkebunan()->result();
 		$data['hitungProduk'] = $this->siporu_model->get_hitung_produk()->result();
 		$this->load->view('index', $data);
 	
