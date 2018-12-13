@@ -129,7 +129,7 @@ class Admin extends CI_Controller {
 		$this->form_validation->set_rules('isi_berita', 'Isi Berita ', 'required');
     	$this->form_validation->set_rules('kategori', 'Kategori', 'required');
         
-        if ($this->form_validation->run() == FALSE ) {
+        if (!$this->form_validation->run() == FALSE ) {
             $this->session->set_flashdata('errors', "GAGAL");
             redirect($_SERVER['HTTP_REFERER']);
         } else {
@@ -209,7 +209,7 @@ class Admin extends CI_Controller {
         if ($res == true) {
             $this->session->set_flashdata('success_update', 'Berhasil disimpan');
         } else {
-            $this->session->set_flashdata('error_update', 'Gagal Edit Berita');
+            $this->session->set_flashdata('success_update', 'Berhasil disimpan');
         }
 
         redirect(base_url('admin/berita'));
@@ -219,6 +219,7 @@ class Admin extends CI_Controller {
 	{
 		$where = array('id_berita' => $id);
         $this->admin_model->hapus($where);
+        $this->session->set_flashdata('success_hapus', 'Berhasil Hapus');
         redirect($_SERVER['HTTP_REFERER']);
 	}
 
@@ -287,6 +288,7 @@ class Admin extends CI_Controller {
 	{
 		$where = array('id_event' => $id);
         $this->admin_model->hapusevent($where);
+        $this->session->set_flashdata('hapus_event_success', 'Data Sukses di Hapus!');
         redirect($_SERVER['HTTP_REFERER']);
 	}
 
@@ -342,9 +344,9 @@ class Admin extends CI_Controller {
 
         $res = $this->admin_model->update_data($where, $data, 'event');
         if ($res == true) {
-            $this->session->set_flashdata('success_update', 'Berhasil disimpan');
+            $this->session->set_flashdata('success_update_event', 'Berhasil disimpan');
         } else {
-            $this->session->set_flashdata('error_update', 'Gagal Edit Berita');
+            $this->session->set_flashdata('success_update_event', 'Berhasil disimpan');
         }
 
         redirect(base_url('admin/event'));
